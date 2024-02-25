@@ -1,7 +1,7 @@
 # Curso de Especialización: Mujeres en Tech II
 
 ## Descripción
-Es el repositorio del Curso de Especialización "Mujeres en Tech II", una iniciativa diseñada para construir un futuro prometedor en el campo del análisis de datos. Este programa es el resultado de una colaboración entre Glovo y KeepCoding, dirigido a mujeres con conocimientos de programación que aspiran a convertirse en Data Analysts.
+Es el repositorio para la Especialización "Mujeres en Tech II", una iniciativa diseñada para construir un futuro prometedor en el campo del análisis de datos. Este programa es el resultado de una colaboración entre Glovo y KeepCoding, dirigido a mujeres con conocimientos de programación que aspiran a convertirse en Data Analysts.
 
 ## Objetivo del Curso
 El propósito de este curso es cerrar la brecha de género en tecnología, proporcionando a las mujeres las habilidades necesarias para ingresar al mercado laboral como analistas de datos. A través de una formación intensiva y práctica, el curso fortalece las bases en programación y gestión de datos, y avanza hacia temas especializados en análisis de datos.
