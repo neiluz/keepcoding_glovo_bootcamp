@@ -32,7 +32,7 @@ El proyecto final consolida los conocimientos adquiridos durante el curso, aplic
 
 ## Prácticas Finales por Módulo
 
-Cada módulo del curso cuenta con una carpeta propia donde se almacenan las prácticas finales de los estudiantes. Puedes navegar a través de las carpetas para ver las distintas prácticas.
+Cada módulo del curso cuenta con una carpeta propia donde se almacenan las prácticas finales. Puedes navegar a través de las carpetas para ver las distintas prácticas.
 
 - [Git, GitHub y Gitflow](https://github.com/neiluz/keep-coding-git)
 - Data 101.
