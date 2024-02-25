@@ -3,13 +3,28 @@
 
 ## Descripción
 
-Este proyecto de base de datos fue desarrollado como parte de la práctica final del modulo: Modelado y sql. El esquema de la base de datos incluye funcionalidades para registrar socios, películas, directores, géneros, copias de películas, préstamos y devoluciones, así como direcciones, emails y teléfonos de los socios para campañas de publicidad..
+Este proyecto de base de datos fue desarrollado como parte de la práctica final del modulo: Modelado y sql. El esquema de la base de datos incluye funcionalidades para registrar socios, películas, directores, géneros, copias de películas, préstamos y devoluciones, así como direcciones, emails y teléfonos de los socios para campañas de publicidad.
+
+- **Objetivos:**
+   * Registro de Socios: Implementar un sistema para el registro y seguimiento de los socios del videoclub, incluyendo datos personales y de contacto, para facilitar la emisión de carnets y la comunicación directa.
+   * Gestión de Películas: Crear un catálogo digital de películas que permita un fácil acceso a información sobre títulos, directores, géneros y disponibilidad de copias.
+   * Préstamos y Devoluciones: Desarrollar un módulo para el registro y seguimiento de préstamos y devoluciones de películas.
+     
+- **Actividades a desarrollarr**:
+   * Modelado de la Base de Datos: Diseñar un esquema de base de datos que refleje de manera eficiente la estructura de datos necesaria para los objetivos planteados.
+   * Implementación de Tablas: Crear las tablas necesarias para socios, películas, directores, géneros, copias de películas, préstamos, devoluciones, direcciones, emails y teléfonos.
+   * Desarrollo de Consultas SQL: Formular consultas SQL para la inserción, actualización, borrado y consulta de datos.
+
+  ---
 
 ## Características
+El diagrama del Modelo Entidad-Relación (ER) proporciona una representación visual de la estructura de la base de datos del videoclub. Ilustra cómo las diferentes entidades como Socio, Pelicula, Copia, Prestamo, y otras están interconectadas y cómo se relacionan entre sí a través de diversas claves primarias (PK) y claves foráneas (FK).
+
+![Modelo Entidad-Relación para Videoclub](https://github.com/neiluz/keepcoding_glovo_bootcamp/blob/main/modelado_sql/practica_modelado/Diagrama_videoclub.jpg)
 
 - Socios: Gestión de socios del videoclub con sus datos personales y de contacto.
 - Direcciones, Emails y Teléfonos: Información de contacto de los socios para campañas de publicidad y comunicación.
-- Películas: Catálogo completo de películas disponibles en el videoclub, incluyendo títulos, géneros, directores y sinopsis.
+- Películas: Catálogo completo de películas disponibles en el videoclub, incluyendo títulos y sinopsis.
 - Géneros y Directores: Clasificación detallada de películas por género y director para facilitar la búsqueda y recomendación de películas.
 - Copias de Películas: Registro de todas las copias de cada película, permitiendo un control de inventario eficaz.
 - Préstamos: Seguimiento de los préstamos de películas a socios, incluyendo fechas de préstamo y devolución.
@@ -30,7 +45,7 @@ Este proyecto de base de datos fue desarrollado como parte de la práctica final
 Para comenzar a utilizar este esquema de base de datos, sigue los siguientes pasos:
 
 1. Clona el repositorio en tu sistema local.
-2. Crea una base de datos en PostgreSQL y ejecuta el script `schema.sql` para configurar las tablas y relaciones.
+2. Crea una base de datos en PostgreSQL y ejecuta el script `video_club_project.sql` para configurar las tablas y relaciones.
 3. Ejecuta el script schema.sql para establecer el esquema de la base de datos en tu sistema.
 4. (Opcional) Importa datos de ejemplo desde la carpeta data/ para realizar pruebas.
    
