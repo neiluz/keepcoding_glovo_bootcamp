@@ -1,6 +1,6 @@
-# Práctica Integral de Excel: Boocamp
+# Práctica Integral de Excel
 
-Este repositorio contiene una práctica integral de Microsoft Excel, realizada como parte del boocamp de análisis de datos. En este proyecto, se abordan varios temas relacionados con el manejo de datos en Excel, desde la introducción básica hasta el análisis avanzado y el manejo de Big Data.
+Este repositorio contiene una práctica integral de Microsoft Excel, realizada como parte de la práctica final del modulo: EXCEL. En este proyecto, se abordan varios temas relacionados con el manejo de datos en Excel, desde la introducción básica hasta el análisis avanzado y el manejo de Big Data.
 
 ## Temas Abordados
 
