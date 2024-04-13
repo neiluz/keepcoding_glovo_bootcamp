@@ -26,12 +26,3 @@ El dashboard está diseñado para ofrecer una visión detallada del mercado inmo
 
 - `/data`: Contiene los datasets utilizados en el dashboard.
 - `/visualizations`: Almacena los archivos de visualización del dashboard.
-
-## Cómo Usar
-
-1. Clone el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-2. Navegue al directorio del proyecto e instale las dependencias (si es necesario).
-3. Abra los archivos de visualización con la herramienta correspondiente.
-4. Asegúrese de configurar correctamente las conexiones a las fuentes de datos.
