@@ -1,9 +1,7 @@
 # Dashboard de Análisis de Precios de Propiedades
-
-Este repositorio contiene los archivos y recursos necesarios para construir un dashboard interactivo que analiza el precio final promedio de las propiedades basado en varios KPIs. El dashboard visualiza datos geográficos y estadísticos para ayudar a identificar patrones y tendencias en el mercado inmobiliario.
+Este repositorio contiene los archivos y recursos necesarios para construir un dashboard interactivo que analiza el precio final promedio de las propiedades en Airbnb en Madrid, basado en varios KPIs. El dashboard visualiza datos geográficos y estadísticos para ayudar a identificar patrones y tendencias en el mercado inmobiliario de alquileres vacacionales en la ciudad.
 
 ## Descripción del Dashboard
-
 El dashboard está diseñado para ofrecer una visión detallada del mercado inmobiliario a través de tres vistas principales:
 
 1. **Mapa por Código Postal:**
@@ -19,11 +17,9 @@ El dashboard está diseñado para ofrecer una visión detallada del mercado inmo
    - **Detalles:** Visualización en capas para facilitar la comparación entre diferentes zonas y gestores de propiedades.
 
 ## Herramientas Utilizadas
-
 - [Tableau](https://www.tableau.com/)
   
 ## Estructura del Repositorio
-
 - `/data`: Contiene los datasets utilizados en el dashboard.
 - `/visualizations`: Almacena los archivos de visualización del dashboard.
 
