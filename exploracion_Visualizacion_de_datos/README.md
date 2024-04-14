@@ -21,7 +21,7 @@ El dashboard está diseñado para ofrecer una visión detallada del mercado inmo
 ## Herramientas Utilizadas
 
 - [Tableau](https://www.tableau.com/)
-- 
+  
 ## Estructura del Repositorio
 
 - `/data`: Contiene los datasets utilizados en el dashboard.
