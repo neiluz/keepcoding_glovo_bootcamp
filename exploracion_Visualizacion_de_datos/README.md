@@ -26,3 +26,20 @@ El dashboard está diseñado para ofrecer una visión detallada del mercado inmo
 
 - `/data`: Contiene los datasets utilizados en el dashboard.
 - `/visualizations`: Almacena los archivos de visualización del dashboard.
+
+## Definición de KPI
+El Indicador Clave de Rendimiento (KPI) utilizado en este tablero es el precio final promedio, que es un compuesto de:
+
+- Precio medio de listado
+- Depósito de seguridad promedio
+- Tarifa de limpieza promedio
+
+Estas métricas se agregan para reflejar el costo total que encuentra un usuario al reservar una propiedad.
+
+## Primeros Pasos
+Para utilizar este tablero:
+
+1. Clona el repositorio en tu máquina local.
+2. Navega al directorio `/data` para inspeccionar los conjuntos de datos.
+3. Abre los archivos de visualización ubicados en `/visualizations` con Tableau.
+4. Interactúa con el tablero para extraer conocimientos sobre el mercado de Airbnb en Madrid.
