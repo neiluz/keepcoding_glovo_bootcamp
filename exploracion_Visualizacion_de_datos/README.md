@@ -37,5 +37,5 @@ Para utilizar este tablero:
 
 1. Clona el repositorio en tu máquina local.
 2. Navega al directorio `/data` para inspeccionar los conjuntos de datos.
-3. Abre los archivos de visualización ubicados en `/visualizations` con Tableau.
+3. Abre los archivos de visualización ubicados en `/visualizacion` con Tableau.
 4. Interactúa con el tablero para extraer conocimientos sobre el mercado de Airbnb en Madrid.
