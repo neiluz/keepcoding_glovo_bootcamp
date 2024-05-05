@@ -1,0 +1,224 @@
+---
+title: "practica_final"
+format: html
+editor: visual
+---
+
+Vamos a utilizar el dataset de semillas que se encuentra aquí: https://archive.ics.uci.edu/ml/datasets/seeds#
+
+Primero vamos a descargarnos el dataset con el siguiente comando:
+
+```{r}
+library(tidyverse)
+df_seeds <- read.table('https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt', col.names =c('area','perimetro','compacto','longitud','anchura','coeficient.asimetria','longitud.ranura','tipo'))
+```
+
+```{r}
+df_seeds
+```
+
+#### PREGUNTA 1
+
+¿Cuantas filas y cuantas columnas tiene el dataframe df_seeds?
+
+**Respuesta**:
+
+```{r}
+num_filas <- nrow(df_seeds)
+num_columnas <- ncol(df_seeds)
+
+# Imprimir el resultado
+print(paste("El dataframe df_seeds tiene", num_filas, "filas y", num_columnas, "columnas."))
+```
+
+```{r}
+str(df_seeds)
+```
+
+#### PREGUNTA 2
+
+Vamos a convertir en factor la columna tipo. Vamos a reemplazar los números por su correspondiente etiqueta (label). La correspondencia entre el código y el tipo es:
+
+-   1 - Kama
+-   2 - Rosa
+-   3 - Canadian
+
+Convierte en factor la columna tipo, respetando las etiquetas:
+
+**Respuesta**:
+
+```{r}
+# Crear un vector con las etiquetas correspondientes
+etiquetas <- c("Kama", "Rosa", "Canadian")
+
+# Convertir la columna "tipo" en un factor con las etiquetas correspondientes
+df_seeds$tipo <- factor(df_seeds$tipo, levels = 1:3, labels = etiquetas)
+
+df_seeds
+```
+
+#### PREGUNTA 3
+
+¿Cual es la media del area de cada uno de los tipos?
+
+**Respuesta**
+
+```{r}
+media_area_por_tipo <- df_seeds %>%
+  group_by(tipo) %>%
+  summarize(media_area = round(mean(area),2))
+
+
+media_area_por_tipo
+```
+
+#### PREGUNTA 4
+
+¿Como se llama el siguiente tipo de gráfico?. ¿Qué representa la línea del centro de la caja?
+
+```{r}
+ggplot(df_seeds, aes(x=tipo, y=area)) + geom_boxplot()
+```
+
+**Respuesta**: ''Este grafico es llamado "Grafico de cajas" o boxplot en inglés. La linea del centro representa la mediana de los datos de cada categoria."
+
+#### PREGUNTA 5
+
+¿Como pintarías un diagrama de puntos (o scatterplot) con ggplot con las siguientes características? - En el eje X la variable compacto - En el eje Y la variable area - Cada tipo de semilla debería tener un color diferente
+
+**Respuesta**:
+
+```{r}
+ggplot(df_seeds, aes(x = compacto, y = area, color = tipo)) +
+  geom_point() +
+  labs(x = "Compacto", y = "Área") +
+  scale_color_discrete(name = "Tipo de Semilla") + ggtitle("Diagrama de dispersión de áreas y compacidad por tipo de semilla")
+```
+
+#### PREGUNTA 6
+
+¿Qué hace la siguiente línea?:
+
+```{r}
+df_seeds |> mutate(is_kama = tipo=='Kama') -> df_seeds
+```
+
+```{r}
+df_seeds
+```
+
+**Respuesta**: '' Esta línea de código crea una nueva columna en el dataframe df_seeds, esta columna contiene valores booleanos que indican si cada entrada del dataframe corresponde al tipo "Kama" o no."
+
+#### PREGUNTA 7
+
+Vamos a dividir el conjunto de datos en test y training porque vamos a entrenar un modelo que me permita diferenciar si una semilla es de tipo Kama o no. ¿Por qué es aconsejable dividir el dataset en los grupos de train y test?
+
+```{r}
+set.seed(123) # Este set.seed hace que a todos nos generen los mismos número aleatorios
+idx <- sample(1:nrow(df_seeds), 0.7*nrow(df_seeds))
+df_seeds_train <- df_seeds[idx,]
+df_seeds_test <- df_seeds[-idx,]
+```
+
+```{r}
+df_seeds_train
+```
+
+```{r}
+summary(df_seeds_train)
+```
+
+```{r}
+df_seeds_test
+```
+
+```{r}
+summary(df_seeds_test)
+```
+
+**Respuesta**: ''Dividir el conjunto de datos en grupos de entrenamiento (train) y prueba (test) es una práctica fundamental en el aprendizaje automático. Esta separación permite evaluar con precisión el rendimiento de los modelos en datos no vistos, lo que simula su comportamiento en el mundo real. Además, ayuda a prevenir el sobreajuste al controlar cómo el modelo generaliza a nuevos datos. Al validar el modelo en datos no vistos,se puede confirmar su utilidad práctica y garantizar que las predicciones sean precisas y confiables en diversas situaciones.
+
+#### PREGUNTA 8
+
+Vamos a crear un modelo para realizar una clasificación binaria, donde le pasaremos como entrada las columnas: area, perimetro, compacto, longitud, coeficient.asimetria y longitud.ranura
+
+¿Qué tipo de algoritmo o modelo debería usar?
+
+**Respuesta**: ''Entre los modelos de clasificación, destaca como uno de los más comunes y ampliamente utilizados, especialmente en el contexto de clasificación binaria es la regresión logística. Aunque técnicamente pertenece a la familia de modelos de regresión, su aplicación se extiende más allá de la regresión tradicional, siendo una herramienta valiosa en la clasificación. Es simple, interpretable y eficiente, y puede proporcionar probabilidades de pertenencia a cada clase."
+
+#### PREGUNTA 9
+
+Crea un modelo que me permita clasificar si una semilla es de tipo Kama o no con las siguientes columnas: area, perimetro, compacto, longitud, coeficient.asimetria, longitud.ranura
+
+**Respuesta**:
+
+```{r}
+# Convertir la columna is_kama a binaria
+df_seeds_train$is_kama <- as.integer(df_seeds_train$is_kama)
+df_seeds_test$is_kama <- as.integer(df_seeds_test$is_kama)
+
+df_seeds_train
+df_seeds_test
+```
+
+```{r}
+# Seleccionar solo las columnas relevantes para el modelo
+cols <- c("area", "perimetro", "compacto", "longitud", "coeficient.asimetria", "longitud.ranura")
+
+# Después hacemos el modelo con el conjunto de entrenamiento, añadimos la fórmula y la función link
+model <- glm(formula = is_kama ~ ., 
+             data = df_seeds_train[, c("is_kama", cols)], 
+             family = binomial('logit'))
+
+summary(model)
+```
+
+```{r}
+#1=Kama, 0= No Kama
+# Hacemos predicciones con el conjunto de prueba
+kama_pred <- predict(model, df_seeds_test, type = "response")
+
+# Convertimos las probabilidades en las clases no kama y kama
+y_est <- factor(ifelse(kama_pred > 0.5, 1, 0))
+
+# Evaluamos el rendimiento del modelo con la matriz de confusión
+M <- table(real = df_seeds_test$is_kama, elegimos = y_est)
+M
+```
+
+#### PREGUNTA 10
+
+Si usamos un umbral de 0 en la salida del modelo (lo que equivale a probabilidad de 0.5 cuando usamos el predict con type='response') ¿Cuales son los valores de precisión y exhausitividad?
+
+**Respuesta**.
+
+Para calcular la precisión y la exhaustividad utilizando un umbral de 0 en la salida del modelo (equivalente a una probabilidad de 0.5 cuando usamos predict con type= response), se pueden usar los valores de la matriz de confusión que ya ha calculado.
+
+```{r}
+# Extraer los valores de la matriz de confusión
+TP <- M[2, 2]  # Verdaderos positivos
+FP <- M[1, 2]  # Falsos positivos
+FN <- M[2, 1]  # Falsos negativos
+
+# Calcular la precisión
+precision <- TP / (TP + FP)
+
+# Calcular la exhaustividad
+exhaustividad <- TP / (TP + FN)
+
+# Mostrar los resultados
+paste("Precisión:", precision)
+paste("Exhaustividad:", exhaustividad)
+```
+
+#### PREGUNTA 11
+
+¿Qué están haciendo las siguientes líneas?
+
+```{r}
+set.seed(123)
+cl<-df_seeds |> select(area,perimetro,compacto,longitud,anchura,coeficient.asimetria,longitud.ranura) |> kmeans(3)
+table(real=df_seeds$tipo,cluster=cl$cluster)
+```
+
+**Respuesta**: ''Las líneas proporcionadas realizan un análisis de agrupamiento (clustering) utilizando el algoritmo K-medias (K-means) en el conjunto de datos df_seeds para agrupar las observaciones en tres grupos distintos.
