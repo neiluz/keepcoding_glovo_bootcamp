@@ -40,5 +40,5 @@ Cada módulo del curso cuenta con una carpeta propia donde se almacenan las prá
 - [Modelado de Datos y SQL](https://github.com/neiluz/keepcoding_glovo_bootcamp/tree/main/modelado_sql/practica_modelado): Práctica final de modelado de bases de datos y el uso de SQL para la gestión de datos.
 - [Excel](https://github.com/neiluz/keepcoding_glovo_bootcamp/tree/main/excel): Práctica final relacionadas con Excel, ETL y Data Warehousing.
 - [Exploración y Visualización de Datos](https://github.com/neiluz/keepcoding_glovo_bootcamp/tree/main/exploracion_Visualizacion_de_datos): Práctica final exploración y visualizar datos efectivamente.
-- [Introducción a R, Data Mining y Business Intelligence](https://github.com/neiluz/keepcoding_glovo_bootcamp/tree/main/introducción_R_data_mining_bi): Práctica final sobre R, técnicas de Data Mining y aplicaciones en Business Intelligence.
+- [Introducción a R, Data Mining y Business Intelligence](https://github.com/neiluz/keepcoding_glovo_bootcamp/tree/main/introduccion_R_data_mining_bi): Práctica final sobre R, técnicas de Data Mining y aplicaciones en Business Intelligence.
 - Python para Big Data.
